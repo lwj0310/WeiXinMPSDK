@@ -63,6 +63,8 @@ Detail: https://github.com/JeffreySu/WeiXinMPSDK/blob/master/license.md
 ----------------------------------------------------------------*/
 
 
+using System;
+
 namespace Senparc.Weixin
 {
     /// <summary>
@@ -105,25 +107,6 @@ namespace Senparc.Weixin
         /// 企业微信
         /// </summary>
         Work
-    }
-
-    /// <summary>
-    /// 缓存类型
-    /// </summary>
-    public enum CacheType
-    {
-        /// <summary>
-        /// 本地运行时缓存（单机）
-        /// </summary>
-        Local,
-        /// <summary>
-        /// Redis缓存（支持分布式）
-        /// </summary>
-        Redis,
-        /// <summary>
-        /// Memcached（支持分布式）
-        /// </summary>
-        Memcached
     }
 
     /// <summary>
@@ -289,6 +272,8 @@ namespace Senparc.Weixin
         /// 小程序为“签名错误”。对应公众号： 87009, “errmsg” : “reply is not exists” //该回复不存在
         /// </summary>
         签名错误 = 87009,
+        //小程序MsgSecCheck接口
+        内容含有违法违规内容 = 87014,
 
         //小程序地点管理返回码
         POST参数非法 = 20002,
@@ -900,7 +885,16 @@ namespace Senparc.Weixin
     /// <summary>
     /// 用户信息中的性别（sex）
     /// </summary>
+    [Obsolete("请使用 Senparc.Weixin.Enums.WeixinSex 枚举。")]
     public enum Sex
+    {
+
+    }
+
+    /// <summary>
+    /// 用户信息中的性别（sex）
+    /// </summary>
+    public enum WeixinSex
     {
 #pragma warning disable CS1591 // 缺少对公共可见类型或成员的 XML 注释   
         未知 = 0,
